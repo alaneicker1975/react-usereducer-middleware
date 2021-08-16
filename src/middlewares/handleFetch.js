@@ -1,21 +1,14 @@
 /* eslint-disable sonarjs/no-small-switch */
-import {
-  FETCH_TODOS,
-  PATCH_TODO,
-  SET_TODOS,
-  UPDATE_TODO,
-  DELETE_TODO,
-  REMOVE_TODO,
-} from '../types';
+import { FETCH_TODOS, PATCH_TODO, DELETE_TODO, setTodos } from '../actions';
 
 const handleFetch = (action) => (dispatch) => {
   switch (action.type) {
     case FETCH_TODOS:
       fetch('https://jsonplaceholder.typicode.com/todos')
         .then((res) => res.json())
-        .then((payload) => dispatch({ type: SET_TODOS, payload }));
+        .then((payload) => dispatch(setTodos(payload)));
       break;
-    case PUT_TODO:
+    case PATCH_TODO:
       break;
     case DELETE_TODO:
       break;

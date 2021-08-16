@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from './App.provider';
-import { FETCH_TODOS } from './types';
+import { FETCH_TODOS } from './actions';
 import TodoList from './components/TodoList';
 
 const App = () => {
