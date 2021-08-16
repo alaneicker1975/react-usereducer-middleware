@@ -16,7 +16,7 @@ const handleFetch = (action, dispatch) => {
         .then((payload) => dispatch(setTodos(payload)));
       break;
     case PATCH_TODO:
-      fetch(`https://jsonplaceholder.typicode.com/posts/${action.payload.id}`, {
+      fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload.id}`, {
         method: 'PATCH',
         body: JSON.stringify({ completed: action.payload.completed }),
         headers: {
@@ -27,7 +27,7 @@ const handleFetch = (action, dispatch) => {
         .then((payload) => dispatch(updateTodo(payload)));
       break;
     case DELETE_TODO:
-      fetch(`https://jsonplaceholder.typicode.com/posts/${action.payload}`, {
+      fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload}`, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
