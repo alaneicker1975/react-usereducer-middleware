@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from './App.provider';
-import { fetchTodos } from './actions';
+import { fetchTodos, patchTodo } from './actions';
 import TodoList from './components/TodoList';
 
 const App = () => {
@@ -12,8 +12,11 @@ const App = () => {
 
   return (
     <main>
-      <h1>Todo List</h1>
-      <TodoList items={state.todos} onStatusChange={() => {}} />
+      <h1>{state.appTitle}</h1>
+      <TodoList
+        items={state.todos}
+        onComplete={(id, completed) => dispatch(patchTodo({ id, completed }))}
+      />
     </main>
   );
 };

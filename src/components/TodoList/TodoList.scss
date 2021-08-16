@@ -2,34 +2,68 @@
   &__item {
     align-items: center;
     display: flex;
-    justify-content: space-between;
     padding: rem(10);
+
+    & > * + * {
+      margin-left: rem(16);
+    }
   }
 
   &__title {
+    flex: 1;
     font-size: rem(18);
   }
 
-  &__btn {
+  &__update-btn {
     background: $red-400;
-    border: 0;
+    border: rem(1) solid transparent;
     border-radius: rem(3);
     cursor: pointer;
     font-size: rem(16);
-    padding: rem(8 8);
-    width: rem(120);
+    padding: rem(6 8);
     transition: background 0.15s linear;
+    width: rem(120);
 
     &.is-completed {
       background: $light-green-300;
     }
 
     &:hover {
-      background: $white;
+      background: darken($blue-gray-900, 2%);
+      border-color: $white;
+      color: $white;
     }
 
     &:focus {
       box-shadow: 0 0 0 rem(2) $cyan-300;
+    }
+  }
+
+  &__delete-btn {
+    align-items: center;
+    background: transparent;
+    border: rem(1) solid $blue-gray-700;
+    border-radius: rem(3);
+    cursor: pointer;
+    display: flex;
+    height: rem(32);
+    justify-content: center;
+    transition: background 0.15s linear;
+    width: rem(32);
+
+    &:hover {
+      background: darken($blue-gray-900, 8%);
+      border-color: $white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 rem(2) $cyan-300;
+    }
+
+    svg {
+      path {
+        fill: $white;
+      }
     }
   }
 
