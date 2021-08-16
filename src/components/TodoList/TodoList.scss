@@ -21,7 +21,7 @@
     cursor: pointer;
     font-size: rem(16);
     padding: rem(6 8);
-    transition: background 0.15s linear;
+    transition: all 0.15s linear;
     width: rem(120);
 
     &.is-completed {
@@ -42,18 +42,24 @@
   &__delete-btn {
     align-items: center;
     background: transparent;
-    border: rem(1) solid $blue-gray-700;
+    border: rem(1) solid $blue-gray-600;
     border-radius: rem(3);
     cursor: pointer;
     display: flex;
     height: rem(32);
     justify-content: center;
-    transition: background 0.15s linear;
+    transition: all 0.15s linear;
     width: rem(32);
 
     &:hover {
       background: darken($blue-gray-900, 8%);
       border-color: $white;
+
+      svg {
+        path {
+          fill: $red-300;
+        }
+      }
     }
 
     &:focus {

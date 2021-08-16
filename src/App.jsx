@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from './App.provider';
-import { fetchTodos, patchTodo } from './actions';
+import { fetchTodos, patchTodo, deleteTodo } from './actions';
 import TodoList from './components/TodoList';
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
       <TodoList
         items={state.todos}
         onComplete={(id, completed) => dispatch(patchTodo({ id, completed }))}
+        onDelete={(id) => dispatch(deleteTodo(id))}
       />
     </main>
   );

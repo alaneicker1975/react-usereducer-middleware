@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   setTodos,
   updateTodo,
+  removeTodo,
 } from '../actions';
 
 const handleFetch = (action, dispatch) => {
@@ -26,6 +27,14 @@ const handleFetch = (action, dispatch) => {
         .then((payload) => dispatch(updateTodo(payload)));
       break;
     case DELETE_TODO:
+      fetch(`https://jsonplaceholder.typicode.com/posts/${action.payload}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((res) => res.json())
+        .then(() => dispatch(removeTodo(action.payload)));
       break;
     default:
       dispatch(action);

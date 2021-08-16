@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-small-switch */
-import { SET_TODOS, UPDATE_TODO } from '../actions';
+import { SET_TODOS, UPDATE_TODO, REMOVE_TODO } from '../actions';
 
 export const initialState = {
   appTitle: 'Todo List',
@@ -18,6 +18,11 @@ const todosReducer = (state = initialState, action) => {
             ? { ...todo, completed: action.payload.completed }
             : todo,
         ),
+      };
+    case REMOVE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
       };
     default:
       return state;
