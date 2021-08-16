@@ -17,11 +17,7 @@
   &__update-btn {
     background: $red-400;
     border: rem(1) solid transparent;
-    border-radius: rem(3);
-    cursor: pointer;
-    font-size: rem(16);
-    padding: rem(6 8);
-    transition: all 0.15s linear;
+    padding: rem(0 8);
     width: rem(110);
 
     &.is-completed {
@@ -43,12 +39,8 @@
     align-items: center;
     background: transparent;
     border: rem(1) solid $blue-gray-600;
-    border-radius: rem(3);
-    cursor: pointer;
     display: flex;
-    height: rem(32);
     justify-content: center;
-    transition: all 0.15s linear;
     width: rem(32);
 
     &:hover {
