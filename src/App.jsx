@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from './App.provider';
-import { FETCH_TODOS } from './actions';
+import { fetchTodos } from './actions';
 import TodoList from './components/TodoList';
 
 const App = () => {
   const { state, dispatch } = useAppContext();
 
   useEffect(() => {
-    dispatch({ type: FETCH_TODOS });
+    dispatch(fetchTodos());
   }, []);
 
   return (

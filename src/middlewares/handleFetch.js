@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/no-small-switch */
 import { FETCH_TODOS, PATCH_TODO, DELETE_TODO, setTodos } from '../actions';
 
-const handleFetch = (action) => (dispatch) => {
+const handleFetch = (action, dispatch) => {
   switch (action.type) {
     case FETCH_TODOS:
       fetch('https://jsonplaceholder.typicode.com/todos')

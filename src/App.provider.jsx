@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducerWithMiddleware(
     todosReducer,
     initialState,
-    [handleFetch, logger],
+    [logger, handleFetch],
   );
 
   return (

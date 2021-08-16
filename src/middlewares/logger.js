@@ -1,5 +1,3 @@
-const logger = (action) => (dispatch) => {
-  console.log('ACTION:', action);
-};
+const logger = (action) => console.log('Dispatched action:', action);
 
 export default logger;
