@@ -1,4 +1,4 @@
-const logger = (state) => (action) => (dispatch) => {
+const logger = (action) => (dispatch) => {
   console.log('ACTION:', action);
 };
 

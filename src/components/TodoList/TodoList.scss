@@ -1,0 +1,39 @@
+.todo-list {
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: rem(10);
+  }
+
+  &__title {
+    font-size: rem(18);
+  }
+
+  &__btn {
+    background: $red-400;
+    border: 0;
+    border-radius: rem(3);
+    cursor: pointer;
+    font-size: rem(16);
+    padding: rem(8 8);
+    width: rem(120);
+    transition: background 0.15s linear;
+
+    &.is-completed {
+      background: $light-green-300;
+    }
+
+    &:hover {
+      background: $white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 rem(2) $cyan-300;
+    }
+  }
+
+  & > * + * {
+    border-top: rem(1) solid $blue-gray-800;
+  }
+}

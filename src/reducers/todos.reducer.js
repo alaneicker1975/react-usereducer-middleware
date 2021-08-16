@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-small-switch */
-import { SET_TODOS } from '../actions';
+import { SET_TODOS } from '../types';
 
 export const initialState = {
   todos: [],

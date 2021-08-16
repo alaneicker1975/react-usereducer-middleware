@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from './App.provider';
-import { FETCH_TODOS } from './actions';
+import { FETCH_TODOS } from './types';
+import TodoList from './components/TodoList';
 
 const App = () => {
   const { state, dispatch } = useAppContext();
@@ -11,7 +12,8 @@ const App = () => {
 
   return (
     <main>
-      <pre>{JSON.stringify(state.todos, null, 2)}</pre>
+      <h1>Todo List</h1>
+      <TodoList items={state.todos} onStatusChange={() => {}} />
     </main>
   );
 };
