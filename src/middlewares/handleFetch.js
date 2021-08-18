@@ -1,4 +1,5 @@
 /* eslint-disable sonarjs/no-small-switch */
+import dotenv from 'dotenv';
 import {
   FETCH_TODOS,
   PATCH_TODO,
@@ -8,15 +9,19 @@ import {
   removeTodo,
 } from '../actions';
 
+dotenv.config();
+
+const baseUrl = process.env.API_BASE_URL;
+
 const handleFetch = (action, dispatch) => {
   switch (action.type) {
     case FETCH_TODOS:
-      fetch('https://jsonplaceholder.typicode.com/todos')
+      fetch(`${baseUrl}/todos`)
         .then((res) => res.json())
         .then((payload) => dispatch(setTodos(payload)));
       break;
     case PATCH_TODO:
-      fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload.id}`, {
+      fetch(`${baseUrl}/todos/${action.payload.id}`, {
         method: 'PATCH',
         body: JSON.stringify({ completed: action.payload.completed }),
         headers: {
@@ -27,7 +32,7 @@ const handleFetch = (action, dispatch) => {
         .then((payload) => dispatch(updateTodo(payload)));
       break;
     case DELETE_TODO:
-      fetch(`https://jsonplaceholder.typicode.com/todos/${action.payload}`, {
+      fetch(`${baseUrl}/todos/${action.payload}`, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
